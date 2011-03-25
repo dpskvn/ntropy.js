@@ -1,1 +1,14 @@
 A random generator (string and number) provided as a jQuery plugin
+
+Usage is fairly simple. Set up a div you want to use to collect entropy.
+
+Then simply call the plugin like this:
+
+$(function() {
+	$("#jqrg").jQrg({
+		'rSize'  : '10' //size of the generated string
+		'pool'   : 'abcdefghijlmnopqrstuvwxyz' //tell the plugin what characters to use to generate the string
+		'target' : '#output' //the id of the target input field
+	});
+});
+
