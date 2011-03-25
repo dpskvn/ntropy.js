@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQrg - A jQuery Random Generator Plugin</title>
+	<link rel="stylesheet" href="css/jQrg.css" type="text/css" />
+	<style type="text/css" media="screen">
+		body {
+			margin: 0px;
+			font-family: helvetica, sans-serif;
+			background: #444;
+			color: #222;
+		}
+		#content {
+			width: 800px;
+			margin: auto;
+			margin-top: 50px;
+			text-align: center;
+		}
+		#form {
+			float: left;
+			font-size: 1.4em;
+			margin-top: 70px;
+		}
+		
+		input {
+		  	padding: 6px;
+			border-bottom: 0px;
+			border-left: 0px;
+			border-right: 0px;
+			border-top: 0px;
+			box-shadow: 0px 0px 4px #000;
+			margin-bottom: 10px;
+			background: #666;
+			color: #222;
+			width: 430px;
+			font-size: 1.4em;
+			font-family: helvetica, sans-serif;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.5.js"></script>
+	<script src="js/jquery.jqrg.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			$("#jqrg").jQrg({
+				'rSize' : '20',
+				'pool'  : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="content">
+		<h1>jQrg - A jQuery Random Generator Plugin</h1>
+		<h3>Move your mouse cursor inside the box to provide entropy for the random string generator</h3>
+		<div id="form">
+			Result: <br />
+			<input type="text" id="output" />
+		</div>
+		<div id="jqrg"></div>
+	</div>
+</body>
+</html>
