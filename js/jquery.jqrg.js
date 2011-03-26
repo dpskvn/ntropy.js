@@ -1,6 +1,6 @@
 /*=======================================================
 // jquery.jqrg.js
-// Version: 0.2 alpha
+// Version: 0.3 alpha
 // Author: Dino Paskvan
 // Mail: dpaskvan@gmail.com
 // Web: http://www.confusedtree.com
@@ -14,7 +14,8 @@
     var options = $.extend({
 			target: '#output',
 			rSize: '10',
-			pool: 'abcdefghijklmnopqrstuvwxyz0123456789'
+			pool: 'abcdefghijklmnopqrstuvwxyz0123456789',
+			message: 'Keep moving the mouse.'
     }, options);
 	
 	this.each(function() {
@@ -27,8 +28,9 @@
 			var limit = 0;
 			var random = '';
 			$('#jqrgdetector').mousemove(function(e){
-				limit = randomSeed.push(e.pageX * e.pageY);
-				$(options.target).val('Keep moving the mouse.');
+				var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
+				limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
+				$(options.target).val(options.message);
 				if (limit == 250) {
 					$(this).hide();
 					base.html('<div id="jqrgdone"></div>');
