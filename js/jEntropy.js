@@ -16,7 +16,7 @@
 						rSize: '10',
 						pool: 'abcdefghijklmnopqrstuvwxyz0123456789',
 						message: 'Keep moving the mouse.',
-						resetText: 'Reset'
+						resetText: 'Click into the box to re-generate the string'
   					}
   	
     				var options = $.extend(defaults, options);
@@ -31,26 +31,33 @@
 							var randomSeed = [];
 							var limit = 0;
 							var random = '';
+							var done = false;
 							$('#jEDetector').mousemove(function(e){
 								var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
 								limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
 								$(o.target).val(o.message);
 								if (limit == 250) {
 									$(this).hide();
-									base.html('<div id="jEDone"><input type="button" value="' + o.resetText + '" id="jEReset" /></div>');
+									base.html('<div id="jEDone"><div id="jEMsg">' + o.resetText + '</div></div>');
 									$('#jEDone').css('min-height', base.height());
 									$('#jEDone').css('min-width', base.width());
 									$('#jEDone').css('background', 'url(images/done.png) no-repeat ' + (base.height()/2-48) + 'px ' + (base.width()/2-48) + 'px');
+									$('#jEMsg').css('margin', 'auto');
+									$('#jEMsg').css('margin-top', base.height() * 0.10);
+									$('#jEMsg').css('width', base.width() * 0.80);
 									for (i = 0; i < o.rSize; i++) {
 										lottery = Math.floor(Math.random() * (limit + 1));
 										rindex = randomSeed[lottery] % o.pool.length;
 										random += o.pool.substring(rindex, rindex + 1);
 									}
 									$(o.target).val(random);
+									done = true;
 								}
 							});
-							$('#jEReset').click(function() {
-								alert('Rock on!');
+							base.click(function() {
+								if(done) {
+									base.jEntropy(o);
+								}
 							});
     				});
   		}

@@ -24,16 +24,15 @@
 		#form {
 			float: left;
 			font-size: 1.4em;
-			margin-top: 70px;
+			width: 430px;
 		}
 		
 		#output {
 		  	padding: 6px;
-			border-bottom: 0px;
-			border-left: 0px;
-			border-right: 0px;
-			border-top: 0px;
-			box-shadow: 0px 0px 4px #000;
+			border-bottom: 4px solid #222;
+			border-left: 4px solid #222;
+			border-right: 4px solid #222;
+			border-top: 4px solid #222;
 			margin-bottom: 10px;
 			background: #666;
 			color: #222;
@@ -55,10 +54,11 @@
 </head>
 <body>
 	<div id="content">
-		<h1>jEntropy - A jQuery entropy-based random generator</h1>
-		<h3>Move your mouse cursor inside the box to provide entropy for the random string generator</h3>
+		<h1>jEntropy</h1>
+		<h2>jQuery entropy-based random generator</h2>
 		<div id="form">
-			Result: <br />
+			<p>Move your mouse cursor inside the box to provide entropy for the random string generator</p>
+			<b>Result:</b><br />
 			<input type="text" id="output" />
 		</div>
 		<div id="jEntropy"></div>
