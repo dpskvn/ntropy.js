@@ -10,7 +10,7 @@
 
 (function($) {
   	var methods = {
-  		init : function(options) {
+  		init : function(options, callback) {
   					var defaults = {
   						target: '#output',
 						rSize: '10',
@@ -48,6 +48,9 @@
 									}
 									$(o.target).val(random);
 								}
+							});
+							$('#jEReset').click(function() {
+								alert('Rock on!');
 							});
     				});
   		}
