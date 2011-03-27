@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jQrg - A jQuery Random Generator Plugin</title>
-	<link rel="stylesheet" href="css/jQrg.css" type="text/css" />
+	<title>jEntropy - A jQuery entropy-based random generator</title>
+	<link rel="stylesheet" href="css/jEntropy.css" type="text/css" />
 	<style type="text/css" media="screen">
 		body {
 			margin: 0px;
@@ -27,7 +27,7 @@
 			margin-top: 70px;
 		}
 		
-		input {
+		#output {
 		  	padding: 6px;
 			border-bottom: 0px;
 			border-left: 0px;
@@ -43,10 +43,10 @@
 		}
 	</style>
 	<script src="http://code.jquery.com/jquery-1.5.js"></script>
-	<script src="js/jquery.jqrg.js"></script>
+	<script src="js/jEntropy.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(function() {
-			$("#jqrg").jQrg({
+			$("#jEntropy").jEntropy({
 				'rSize' : '20',
 				'pool'  : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 			});
@@ -55,14 +55,13 @@
 </head>
 <body>
 	<div id="content">
-		<h1>jQrg - A jQuery Random Generator Plugin</h1>
+		<h1>jEntropy - A jQuery entropy-based random generator</h1>
 		<h3>Move your mouse cursor inside the box to provide entropy for the random string generator</h3>
 		<div id="form">
 			Result: <br />
-			<input type="text" id="output" /><br /><br />
-			Download the plugin <a href="https://github.com/ConfusedTree/jQrg/zipball/master">here</a>.
+			<input type="text" id="output" />
 		</div>
-		<div id="jqrg"></div>
+		<div id="jEntropy"></div>
 	</div>
 </body>
 </html>
