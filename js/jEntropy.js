@@ -36,7 +36,7 @@
 								var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
 								limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
 								$(o.target).val(o.message);
-								if (limit == 250) {
+								if (limit == 200) {
 									$(this).hide();
 									base.html('<div id="jEDone"><div id="jEMsg">' + o.resetText + '</div></div>');
 									$('#jEDone').css('min-height', base.height());
@@ -60,6 +60,10 @@
 								}
 							});
     				});
+		},
+  		
+  		hide : function(options, callback) {
+  			$(this).fadeOut(400);
   		}
   	};
   	
