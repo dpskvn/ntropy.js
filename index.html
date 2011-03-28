@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jEntropy - A jQuery entropy-based random generator</title>
+	<link rel="stylesheet" href="css/jEntropy.css" type="text/css" />
+	<style type="text/css" media="screen">
+		body {
+			margin: 0px;
+			font-family: helvetica, sans-serif;
+			background: #444;
+			color: #222;
+		}
+		a:link {text-decoration: none; color: #436c4e;}
+		a:visited {text-decoration: none; color: #436c4e;}
+		a:active {text-decoration: none; color: #436c4e;}
+		a:hover {text-decoration: none; color: #4d4d4d;}
+		a img {border: none; } 
+		#content {
+			width: 800px;
+			margin: auto;
+			margin-top: 50px;
+			text-align: center;
+		}
+		#form {
+			float: left;
+			font-size: 1.4em;
+			width: 430px;
+		}
+		
+		#output {
+		  	padding: 6px;
+			border: 4px solid #222;
+			margin-bottom: 10px;
+			background: #666;
+			color: #222;
+			width: 430px;
+			font-size: 1.4em;
+			font-family: helvetica, sans-serif;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.5.js"></script>
+	<script src="js/jEntropy.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			$("#jEntropy").jEntropy({
+				'rSize' : '20',
+				'pool'  : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="content">
+		<h1>jEntropy</h1>
+		<h2>jQuery entropy-based random generator</h2>
+		<div id="form">
+			<p>Move your mouse cursor inside the box to provide entropy for the random string generator</p>
+			<b>Result:</b><br />
+			<input type="text" id="output" />
+		</div>
+		<div id="jEntropy"></div>
+	</div>
+</body>
+</html>
