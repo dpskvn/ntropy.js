@@ -20,4 +20,6 @@ message - the message shown in the input field while the user is generating the 
 resetText - message shown after generating the content if the user is allowed to repeat the generating process
 aHide - auto-hide option (true or false)
 
+The plugin has been tested with jQuery 1.4 and 1.5. It's working on latest versions of Chrome, Firefox, Safari, IE and Opera.
+
 jEntropy is released under the MIT license. For more info, check the LICENSE file.
