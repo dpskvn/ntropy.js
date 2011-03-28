@@ -25,6 +25,10 @@
 	
 					return this.each(function() {
 							var base = $(this);
+							$(o.target).focus(function() {
+								base.fadeIn(400);
+								$(o.target).attr('disabled', true);
+							});
 							base.html('<div id="jEDetector"></div>');
 							$('#jEDetector').css('display', 'none');
 							$('#jEDetector').css('min-height', base.height());

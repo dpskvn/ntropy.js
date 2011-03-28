@@ -15,6 +15,9 @@
 		a:active {text-decoration: none; color: #436c4e;}
 		a:hover {text-decoration: none; color: #4d4d4d;}
 		a img {border: none; } 
+		label {
+			font-weight: bold;
+		}
 		#content {
 			width: 800px;
 			margin: auto;
@@ -27,7 +30,7 @@
 			width: 430px;
 		}
 		
-		#output {
+		.form {
 		  	padding: 6px;
 			border: 4px solid #222;
 			margin-bottom: 10px;
@@ -36,6 +39,18 @@
 			width: 430px;
 			font-size: 1.4em;
 			font-family: helvetica, sans-serif;
+			text-align: center;
+		}
+		.button {
+		  	padding: 6px;
+			border: 4px solid #222;
+			margin-bottom: 10px;
+			background: #666;
+			color: #222;
+			width: 230px;
+			font-size: 1.4em;
+			font-family: helvetica, sans-serif;
+			text-align: center;
 		}
 	</style>
 	<script src="http://code.jquery.com/jquery-1.5.js"></script>
@@ -54,9 +69,11 @@
 		<h1>jEntropy</h1>
 		<h2>jQuery entropy-based random generator</h2>
 		<div id="form">
-			<p>Move your mouse cursor inside the box to provide entropy for the random string generator</p>
-			<b>Result:</b><br />
-			<input type="text" id="output" />
+			<p>Fill this in like you would any regular form. Once you focus on the password field, the generator will appear.</p>
+			<label>Username:</label><input type="text" class="form" />
+			<label>Password:</label><input type="text" id="output" class="form" />
+			<label>E-mail:</label><input type="text" class="form"/>
+			<input type="button" value="Register" class="button"/>
 		</div>
 		<div id="jEntropy"></div>
 	</div>
