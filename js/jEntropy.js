@@ -26,6 +26,11 @@
 					return this.each(function() {
 							var base = $(this);
 							$(o.target).focus(function() {
+								$('body').append('<div id="jEOverlay"></div>');
+								base.css('position', 'absolute');
+								base.css('top', $(window).height()/2 - base.height()/2);
+								base.css('left', $(window).width()/2 - base.width()/2);
+								$("#jEOverlay").fadeIn(400);
 								base.fadeIn(400);
 								$(o.target).attr('disabled', true);
 							});

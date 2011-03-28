@@ -8,4 +8,21 @@
     float: right;
     text-align: center;
     display: none;
+    z-index: 200;
 }
+
+#jEOverlay {
+	position: fixed;
+	z-index: 100;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	display: none;
+	background-color: #000;
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+}
+
+	
