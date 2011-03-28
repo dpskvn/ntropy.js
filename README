@@ -1,0 +1,23 @@
+jEntropy - a jQuery plugin by Dino Paskvan (http://www.confusedtree.com)
+
+jEntropy is a random string/number generator using entropy collected from mouse movement as the seed for random content.
+
+It can be used as way for users to generate passwords for themselves, generate password salts during account registration, or even manual session ID creation. There are other possible uses, generating encryption keys, and so on.
+
+The usage is rather simple. You need to setup a div that will be used as the entropy detector. Then call the plugin like this:
+
+$(#yourDiv).jEntropy({
+          'option1' : 'value1',
+          'option2' : 'value2'
+});
+
+The options you can set are:
+
+target - the id of the input field to which you'll be sending the generated content
+rSize - the length of the generated string
+pool - the characters used to generate the string (i.e. 'abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+message - the message shown in the input field while the user is generating the string
+resetText - message shown after generating the content if the user is allowed to repeat the generating process
+aHide - auto-hide option (true or false)
+
+jEntropy is released under the MIT license. For more info, check the LICENSE file.
