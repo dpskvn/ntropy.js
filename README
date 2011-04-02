@@ -15,6 +15,7 @@ The options you can set are:
 
 rSize - the length of the generated string
 pool - the characters used to generate the string (i.e. 'abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+message - the message you want to display to your users while they are generating the string
 
 The plugin has been tested with jQuery 1.4 and 1.5. It's working on latest versions of Chrome, Firefox, Safari, IE and Opera.
 
