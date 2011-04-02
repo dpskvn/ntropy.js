@@ -61,8 +61,9 @@
 		},
   		
   		hide : function(options, callback) {
-  			$('#jEOverlay').fadeOut(600).delay(600).remove();
-  			$(this).fadeOut(600).delay(600).remove();
+  			$('#jEOverlay').fadeOut(600);
+  			$(this).fadeOut(600);
+  			$(this).remove();
   		}
   	};
   	
