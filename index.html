@@ -10,24 +10,37 @@
 			background: #444;
 			color: #222;
 		}
-		a:link {text-decoration: none; color: #436c4e;}
-		a:visited {text-decoration: none; color: #436c4e;}
-		a:active {text-decoration: none; color: #436c4e;}
-		a:hover {text-decoration: none; color: #4d4d4d;}
-		a img {border: none; } 
+		a:link {
+			text-decoration: none; 
+			color: #436c4e;
+		}
+		a:visited {
+			text-decoration: none; 
+			color: #436c4e;
+		}
+		a:active {
+			text-decoration: none; 
+			color: #436c4e;
+		}
+		a:hover {
+			text-decoration: none; 
+			color: #4d4d4d;
+		}
+		a img {
+			border: none; 
+		} 
+		label {
+			font-weight: bold;
+			display: block;
+			font-size: 1.2em;
+		}
 		#content {
 			width: 800px;
 			margin: auto;
 			margin-top: 50px;
 			text-align: center;
 		}
-		#form {
-			float: left;
-			font-size: 1.4em;
-			width: 430px;
-		}
-		
-		#output {
+		.form {
 		  	padding: 6px;
 			border: 4px solid #222;
 			margin-bottom: 10px;
@@ -36,15 +49,43 @@
 			width: 430px;
 			font-size: 1.4em;
 			font-family: helvetica, sans-serif;
+			text-align: center;
 		}
+		.form:hover {
+			box-shadow: 0px 0px 2px #000;
+			background: #222;
+			color: #666;
+			border: 4px solid #666;
+		}
+		.button {
+		  	padding: 6px;
+			border: 4px solid #222;
+			margin-bottom: 10px;
+			background: #666;
+			color: #222;
+			width: 230px;
+			font-size: 1.4em;
+			font-family: helvetica, sans-serif;
+			text-align: center;
+		}
+		.button:hover {
+			background: #222;
+			color: #666;
+			border: 4px solid #666;
+		} 
 	</style>
 	<script src="http://code.jquery.com/jquery-1.5.js"></script>
 	<script src="js/jEntropy.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(function() {
-			$("#jEntropy").jEntropy({
-				'rSize' : '20',
+			$("#password").jEntropy({
+				'rSize' : '8',
 				'pool'  : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+			});
+			$("#salt").jEntropy({
+				'rSize'   : '20',
+				'pool'    : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+				'message' : 'Move your mouse again. The generated string will be used to encrypt your password in our database.'
 			});
 		});
 	</script>
@@ -53,12 +94,12 @@
 	<div id="content">
 		<h1>jEntropy</h1>
 		<h2>jQuery entropy-based random generator</h2>
-		<div id="form">
-			<p>Move your mouse cursor inside the box to provide entropy for the random string generator</p>
-			<b>Result:</b><br />
-			<input type="text" id="output" />
-		</div>
-		<div id="jEntropy"></div>
+		<p>Fill this in like you would any regular form. Once you focus on the password field, the generator will appear.</p>
+		<label>Username:</label><input type="text" id="name" class="form" />
+		<label>Password:</label><input type="text" id="password" class="form" />
+		<label>Salt:</label><input type="text" id="salt" class="form" />
+		<label>E-mail:</label><input type="text" class="form"/><br />
+		<input type="button" value="Register" class="button"/>
 	</div>
 </body>
 </html>

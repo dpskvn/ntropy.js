@@ -1,6 +1,6 @@
 /*=======================================================
 // jEntropy.js
-// Version: 0.5
+// Version: 1.0
 // Author: Dino Paskvan
 // Mail: dpaskvan@gmail.com
 // Web: http://www.confusedtree.com
@@ -12,66 +12,57 @@
   	var methods = {
   		init : function(options, callback) {
   					var defaults = {
-  						target: '#output',
-						rSize: '10',
-						pool: 'abcdefghijklmnopqrstuvwxyz0123456789',
-						message: 'Keep moving the mouse.',
-						resetText: 'Click into the box to re-generate the string',
-						aHide: false
+						rSize: '10',																			//
+						pool: 'abcdefghijklmnopqrstuvwxyz0123456789',											// Default options. Don't change these, use the options when calling the plugin instead.
+						message: 'Move your mouse cursor around to collect entropy for the random generator.'	//
   					}
   	
     				var options = $.extend(defaults, options);
     				var o = options;
+    				var done = false;
 	
 					return this.each(function() {
 							var base = $(this);
-							base.html('<div id="jEDetector"></div>');
-							$('#jEDetector').css('display', 'none');
-							$('#jEDetector').css('min-height', base.height());
-							$('#jEDetector').css('min-width', base.width());
-							$('#jEDetector').css('background', 'url(images/chaos.png) no-repeat ' + (base.height()/2-48) + 'px ' + (base.width()/2-48) + 'px');
-							$('#jEDetector').fadeIn(600);
-							var randomSeed = [];
-							var limit = 0;
-							var random = '';
-							var done = false;
-							$('#jEDetector').mousemove(function(e){
-								var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
-								limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
-								$(o.target).val(o.message);
-								if (limit == 200) {
-									$(this).fadeOut(400);
-									base.html('<div id="jEDone"><div id="jEMsg">' + o.resetText + '</div></div>');
-									$('#jEDone').css('display', 'none');
-									$('#jEDone').css('min-height', base.height());
-									$('#jEDone').css('min-width', base.width());
-									$('#jEDone').css('background', 'url(images/done.png) no-repeat ' + (base.height()/2-48) + 'px ' + (base.width()/2-48) + 'px');
-									$('#jEMsg').css('margin', 'auto');
-									$('#jEMsg').css('padding-top', base.height() * 0.10);
-									$('#jEMsg').css('width', base.width() * 0.80);
-									$('#jEDone').fadeIn(600);
-									for (i = 0; i < o.rSize; i++) {
-										lottery = Math.floor(Math.random() * (limit + 1));
-										rindex = randomSeed[lottery] % o.pool.length;
-										random += o.pool.substring(rindex, rindex + 1);
-									}
-									$(o.target).val(random);
-									done = true;
-									if(o.aHide) {
-										base.jEntropy('hide');
-									}
-								}
-							});
-							base.click(function() {
-								if(done) {
-									base.jEntropy(o);
+							base.focus(function() {
+								if (!done) {
+									$('body').append('<div id="jEntropy"><p>' + o.message + '</p><div id="jEProgCont"><div id="jEProgress"></div></div></div><div id="jEOverlay"></div>');
+									$('#jEntropy').css('position', 'absolute');
+									$('#jEntropy').css('top', $(window).height()/2 - $('#jEntropy').height()/2);
+									$('#jEntropy').css('left', $(window).width()/2 - $('#jEntropy').width()/2);
+									$('#jEntropy').css('background', 'url(images/chaos.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
+									$('#jEProgress').css('width', '1%');
+									$("#jEOverlay").fadeIn(600);
+									$('#jEntropy').fadeIn(600);
+									base.attr('disabled', true);
+									var randomSeed = [];
+									var limit = 0;
+									var random = '';
+									$('body').mousemove(function(e){
+										var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI); // Got to have Pi in it. Makes it all scientific. Not to mention tasty.
+										limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
+										$('#jEProgress').css('width', (limit/200)*100 + '%');
+										if (limit > 200) {
+											$('#jEProgress').css('width', '100%');
+										}
+										if (limit == 200) {
+											for (i = 0; i < o.rSize; i++) {
+												lottery = Math.floor(Math.random() * (limit + 1));
+												rindex = randomSeed[lottery] % o.pool.length;
+												random += o.pool.substring(rindex, rindex + 1);
+											}
+											base.val(random);
+											done = true;
+											$('#jEntropy').jEntropy('hide');
+										}
+									});
 								}
 							});
     				});
 		},
   		
   		hide : function(options, callback) {
-  			$(this).fadeOut(400);
+  			$('#jEOverlay').fadeOut(600).remove();
+  			$(this).fadeOut(600).remove();
   		}
   	};
   	
