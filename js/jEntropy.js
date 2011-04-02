@@ -19,52 +19,40 @@
   	
     				var options = $.extend(defaults, options);
     				var o = options;
+    				var done = false;
 	
 					return this.each(function() {
 							var base = $(this);
 							base.focus(function() {
-								$('body').append('<div id="jEntropy"><div id="jEDetector"></div></div><div id="jEOverlay"></div>');
-								$('#jEntropy').css('position', 'absolute');
-								$('#jEntropy').css('top', $(window).height()/2 - $('#jEntropy').height()/2);
-								$('#jEntropy').css('left', $(window).width()/2 - $('#jEntropy').width()/2);
-								$('#jEDetector').css('min-height', $('#jEntropy').height());
-								$('#jEDetector').css('min-width', $('#jEntropy').width());
-								$('#jEDetector').css('background', 'url(images/chaos.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
-								$("#jEOverlay").fadeIn(400);
-								$('#jEntropy').fadeIn(400);
-								base.attr('disabled', true);
-								var randomSeed = [];
-								var limit = 0;
-								var random = '';
-								var done = false;
-								$('#jEDetector').mousemove(function(e){
-									var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
-									limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
-									if (limit == 200) {
-										$(this).fadeOut(400);
-										$('#jEntropy').html('<div id="jEDone"><div id="jEMsg"></div></div>');
-										$('#jEDone').css('display', 'none');
-										$('#jEDone').css('min-height', $('#jEntropy').height());
-										$('#jEDone').css('min-width', $('#jEntropy').width());
-										$('#jEDone').css('background', 'url(images/done.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
-										$('#jEMsg').css('margin', 'auto');
-										$('#jEMsg').css('padding-top', $('#jEntropy').height() * 0.10);
-										$('#jEMsg').css('width', $('#jEntropy').width() * 0.80);
-										$('#jEDone').fadeIn(600);
-										for (i = 0; i < o.rSize; i++) {
-											lottery = Math.floor(Math.random() * (limit + 1));
-											rindex = randomSeed[lottery] % o.pool.length;
-											random += o.pool.substring(rindex, rindex + 1);
+								if (!done) {
+									$('body').append('<div id="jEntropy"><div id="jEDetector"></div></div><div id="jEOverlay"></div>');
+									$('#jEntropy').css('position', 'absolute');
+									$('#jEntropy').css('top', $(window).height()/2 - $('#jEntropy').height()/2);
+									$('#jEntropy').css('left', $(window).width()/2 - $('#jEntropy').width()/2);
+									$('#jEDetector').css('min-height', $('#jEntropy').height());
+									$('#jEDetector').css('min-width', $('#jEntropy').width());
+									$('#jEDetector').css('background', 'url(images/chaos.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
+									$("#jEOverlay").fadeIn(400);
+									$('#jEntropy').fadeIn(400);
+									base.attr('disabled', true);
+									var randomSeed = [];
+									var limit = 0;
+									var random = '';
+									$('#jEDetector').mousemove(function(e){
+										var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
+										limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
+										if (limit == 200) {
+											$(this).fadeOut(400);
+											for (i = 0; i < o.rSize; i++) {
+												lottery = Math.floor(Math.random() * (limit + 1));
+												rindex = randomSeed[lottery] % o.pool.length;
+												random += o.pool.substring(rindex, rindex + 1);
+											}
+											base.val(random);
+											done = true;
+											$('#jEntropy').jEntropy('hide');
 										}
-										base.val(random);
-										done = true;
-										$('#jEntropy').jEntropy('hide');
-									}
-								});
-							});
-							base.click(function() {
-								if(done) {
-									base.jEntropy(o);
+									});
 								}
 							});
     				});
