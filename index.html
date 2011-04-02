@@ -78,7 +78,7 @@
 	<script src="js/jEntropy.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(function() {
-			$("#jEntropy").jEntropy({
+			$("#password").jEntropy({
 				'rSize' : '20',
 				'pool'  : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 			});
@@ -91,10 +91,9 @@
 		<h2>jQuery entropy-based random generator</h2>
 		<p>Fill this in like you would any regular form. Once you focus on the password field, the generator will appear.</p>
 		<label>Username:</label><input type="text" class="form" />
-		<label>Password:</label><input type="text" id="output" class="form" />
+		<label>Password:</label><input type="text" id="password" class="form" />
 		<label>E-mail:</label><input type="text" class="form"/><br />
 		<input type="button" value="Register" class="button"/>
-		<div id="jEntropy"></div>
 	</div>
 </body>
 </html>

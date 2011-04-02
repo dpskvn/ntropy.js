@@ -1,6 +1,6 @@
 /*=======================================================
 // jEntropy.js
-// Version: 0.5
+// Version: 0.6
 // Author: Dino Paskvan
 // Mail: dpaskvan@gmail.com
 // Web: http://www.confusedtree.com
@@ -12,11 +12,8 @@
   	var methods = {
   		init : function(options, callback) {
   					var defaults = {
-  						target: '#output',
 						rSize: '10',
 						pool: 'abcdefghijklmnopqrstuvwxyz0123456789',
-						message: 'Keep moving the mouse.',
-						resetText: 'Click into the box to re-generate the string',
 						aHide: false
   					}
   	
@@ -25,51 +22,45 @@
 	
 					return this.each(function() {
 							var base = $(this);
-							$(o.target).focus(function() {
-								$('body').append('<div id="jEOverlay"></div>');
-								base.css('position', 'absolute');
-								base.css('top', $(window).height()/2 - base.height()/2);
-								base.css('left', $(window).width()/2 - base.width()/2);
+							base.focus(function() {
+								$('body').append('<div id="jEntropy"><div id="jEDetector"></div></div><div id="jEOverlay"></div>');
+								$('#jEntropy').css('position', 'absolute');
+								$('#jEntropy').css('top', $(window).height()/2 - $('#jEntropy').height()/2);
+								$('#jEntropy').css('left', $(window).width()/2 - $('#jEntropy').width()/2);
+								$('#jEDetector').css('min-height', $('#jEntropy').height());
+								$('#jEDetector').css('min-width', $('#jEntropy').width());
+								$('#jEDetector').css('background', 'url(images/chaos.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
 								$("#jEOverlay").fadeIn(400);
-								base.fadeIn(400);
-								$(o.target).attr('disabled', true);
-							});
-							base.html('<div id="jEDetector"></div>');
-							$('#jEDetector').css('display', 'none');
-							$('#jEDetector').css('min-height', base.height());
-							$('#jEDetector').css('min-width', base.width());
-							$('#jEDetector').css('background', 'url(images/chaos.png) no-repeat ' + (base.height()/2-48) + 'px ' + (base.width()/2-48) + 'px');
-							$('#jEDetector').fadeIn(600);
-							var randomSeed = [];
-							var limit = 0;
-							var random = '';
-							var done = false;
-							$('#jEDetector').mousemove(function(e){
-								var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
-								limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
-								$(o.target).val(o.message);
-								if (limit == 200) {
-									$(this).fadeOut(400);
-									base.html('<div id="jEDone"><div id="jEMsg">' + o.resetText + '</div></div>');
-									$('#jEDone').css('display', 'none');
-									$('#jEDone').css('min-height', base.height());
-									$('#jEDone').css('min-width', base.width());
-									$('#jEDone').css('background', 'url(images/done.png) no-repeat ' + (base.height()/2-48) + 'px ' + (base.width()/2-48) + 'px');
-									$('#jEMsg').css('margin', 'auto');
-									$('#jEMsg').css('padding-top', base.height() * 0.10);
-									$('#jEMsg').css('width', base.width() * 0.80);
-									$('#jEDone').fadeIn(600);
-									for (i = 0; i < o.rSize; i++) {
-										lottery = Math.floor(Math.random() * (limit + 1));
-										rindex = randomSeed[lottery] % o.pool.length;
-										random += o.pool.substring(rindex, rindex + 1);
+								$('#jEntropy').fadeIn(400);
+								base.attr('disabled', true);
+								var randomSeed = [];
+								var limit = 0;
+								var random = '';
+								var done = false;
+								$('#jEDetector').mousemove(function(e){
+									var tOffset = Math.floor((Number(new Date().getTime()))/Math.PI);
+									limit = randomSeed.push(tOffset - (e.pageX ^ e.pageY));
+									if (limit == 200) {
+										$(this).fadeOut(400);
+										$('#jEntropy').html('<div id="jEDone"><div id="jEMsg"></div></div>');
+										$('#jEDone').css('display', 'none');
+										$('#jEDone').css('min-height', $('#jEntropy').height());
+										$('#jEDone').css('min-width', $('#jEntropy').width());
+										$('#jEDone').css('background', 'url(images/done.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
+										$('#jEMsg').css('margin', 'auto');
+										$('#jEMsg').css('padding-top', $('#jEntropy').height() * 0.10);
+										$('#jEMsg').css('width', $('#jEntropy').width() * 0.80);
+										$('#jEDone').fadeIn(600);
+										for (i = 0; i < o.rSize; i++) {
+											lottery = Math.floor(Math.random() * (limit + 1));
+											rindex = randomSeed[lottery] % o.pool.length;
+											random += o.pool.substring(rindex, rindex + 1);
+										}
+										base.val(random);
+										done = true;
+										$('#jEntropy').jEntropy('hide');
 									}
-									$(o.target).val(random);
-									done = true;
-									if(o.aHide) {
-										base.jEntropy('hide');
-									}
-								}
+								});
 							});
 							base.click(function() {
 								if(done) {
@@ -80,6 +71,7 @@
 		},
   		
   		hide : function(options, callback) {
+  			$('#jEOverlay').fadeOut(400);
   			$(this).fadeOut(400);
   		}
   	};

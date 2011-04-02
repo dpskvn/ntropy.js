@@ -20,7 +20,7 @@
 	width: 100%;
 	display: none;
 	background-color: #000;
-	filter:alpha(opacity=75);
+	filter:alpha(opacity=65);
 	-moz-opacity: 0.75;
 	opacity: 0.75;
 }
