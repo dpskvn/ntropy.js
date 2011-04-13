@@ -1,6 +1,6 @@
 /*=======================================================
 // jEntropy.js
-// Version: 1.0
+// Version: 1.1
 // Author: Dino Paskvan
 // Mail: dpaskvan@gmail.com
 // Web: http://www.confusedtree.com
@@ -14,8 +14,9 @@
   					var defaults = {
 						rSize: '10',																			//
 						pool: 'abcdefghijklmnopqrstuvwxyz0123456789',											// Default options. Don't change these, use the options when calling the plugin instead.
-						message: 'Move your mouse cursor around to collect entropy for the random generator.'	//
-  					}
+						message: 'Move your mouse cursor around to collect entropy for the random generator.',	//
+  						disable: false
+					}
   	
     				var options = $.extend(defaults, options);
     				var o = options;
@@ -33,7 +34,9 @@
 									$('#jEProgress').css('width', '1%');
 									$("#jEOverlay").fadeIn(600);
 									$('#jEntropy').fadeIn(600);
-									base.attr('disabled', true);
+									if (o.disable) {
+										base.attr('disabled', true);
+									}
 									var randomSeed = [];
 									var limit = 0;
 									var random = '';
