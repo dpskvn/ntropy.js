@@ -1,7 +1,8 @@
 #jEntropy { 
+	font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
 	width: 400px; 
 	height: 400px; 
-    color: #222;
+    color: #eee;
     z-index: 200;
     font-size: 20px;
     text-align: center;
@@ -24,13 +25,13 @@
 	height: 20px;
 	margin-top: 300px;
 	background-color: #000;
-	border: 2px solid #222;
+	border: 2px solid #eee;
 	z-index: 200;
 }
 
 #jEProgress {
 	width: 1%;
 	height: 20px;
-	background-color: #222;
+	background-color: #eee;
 	z-index: 200;
 }

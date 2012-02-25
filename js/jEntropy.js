@@ -30,7 +30,7 @@
 									$('#jEntropy').css('position', 'absolute');
 									$('#jEntropy').css('top', $(window).height()/2 - $('#jEntropy').height()/2);
 									$('#jEntropy').css('left', $(window).width()/2 - $('#jEntropy').width()/2);
-									$('#jEntropy').css('background', 'url(images/chaos.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
+									$('#jEntropy').css('background', 'url(images/arrow.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
 									$('#jEProgress').css('width', '1%');
 									$("#jEOverlay").fadeIn(600);
 									$('#jEntropy').fadeIn(600);
