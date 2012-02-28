@@ -33,4 +33,4 @@ jEntropy is released under the MIT license. For more info, check the LICENSE fil
 
 Author
 ======
-Dino Paskvan (http://www.confusedtree.com)
+Dino Paskvan (http://www.paskvan.me)
