@@ -1,3 +1,7 @@
+07-15-2013 - v2.0
+* A major rewrite
+* Compatibility updates for new versions of jQuery
+
 04-13-2011 - v1.1
 * Added option for disabling input fields
 
