@@ -1,12 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+
 #jEntropy { 
-	font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+	font-family: "Lato", sans-serif;
 	width: 400px; 
 	height: 400px; 
-    color: #eee;
-    z-index: 200;
-    font-size: 20px;
-    text-align: center;
-    display: none;
+  color: #eee;
+  z-index: 200;
+  font-size: 20px;
+  text-align: center;
+  display: none;
 }
 
 #jEOverlay {
