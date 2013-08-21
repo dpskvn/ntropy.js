@@ -34,3 +34,6 @@ jEntropy is released under the MIT license. For more info, check the LICENSE fil
 Author
 ======
 Dino Paskvan (http://www.paskvan.me)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/DinoPaskvan/jentropy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
