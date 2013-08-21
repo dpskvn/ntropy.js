@@ -1,10 +1,10 @@
 /*=======================================================
 // jEntropy.js
-// Version: 1.1
+// Version: 1.2
 // Author: Dino Paskvan
 // Mail: dpaskvan@gmail.com
-// Web: http://www.confusedtree.com
-// Copyright (c) 2011 Dino Paskvan
+// Web: http://www.dinopaskvan.com
+// Copyright (c) 2013 Dino Paskvan
 // licence : MIT
 ========================================================= */
 
@@ -30,7 +30,6 @@
 									$('#jEntropy').css('position', 'absolute');
 									$('#jEntropy').css('top', $(window).height()/2 - $('#jEntropy').height()/2);
 									$('#jEntropy').css('left', $(window).width()/2 - $('#jEntropy').width()/2);
-									$('#jEntropy').css('background', 'url(images/arrow.png) no-repeat ' + ($('#jEntropy').height()/2-48) + 'px ' + ($('#jEntropy').width()/2-48) + 'px');
 									$('#jEProgress').css('width', '1%');
 									$("#jEOverlay").fadeIn(600);
 									$('#jEntropy').fadeIn(600);
