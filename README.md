@@ -20,8 +20,8 @@ A demo/new page will follow soon.
 ##Options
 The `options` object has the following two properties:
 
-limit - the length of the generated string
-pool - the characters used to generate the string (i.e. 'abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+`limit` - the length of the generated string 
+`pool` - the characters used to generate the string (i.e. 'abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 
 ##License
 ntropy.js is released under the MIT license. For more info, check the LICENSE file.
