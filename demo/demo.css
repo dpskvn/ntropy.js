@@ -1,0 +1,116 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro:400,700);
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  color: #333;
+  background: #333;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0; }
+
+header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  background: #333;
+  text-align: center; }
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  header h1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    display: block;
+    font-family: "Source Code Pro";
+    color: #F6BB42; }
+    header h1:last-child {
+      margin-right: 0; }
+    header h1 small {
+      color: #999;
+      font-family: "Source Sans Pro";
+      font-size: 0.5em; }
+  header .buttons {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-bottom: 30px; }
+    header .buttons:last-child {
+      margin-right: 0; }
+
+section {
+  background: #333;
+  color: #f6bb42;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  section:nth-child(2n) {
+    color: #333;
+    background: #f6bb42; }
+  section:after {
+    content: "";
+    display: table;
+    clear: both; }
+  section aside {
+    padding: 20px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    section aside:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 800px) {
+      section aside {
+        float: left;
+        display: block;
+        margin-right: 4.82916%;
+        width: 100%; }
+        section aside:last-child {
+          margin-right: 0; } }
+  section article {
+    padding: 20px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    section article:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 800px) {
+      section article {
+        float: left;
+        display: block;
+        margin-right: 4.82916%;
+        width: 100%; }
+        section article:last-child {
+          margin-right: 0; } }
+    section article h2 {
+      text-align: center; }
+      section article h2 a {
+        color: #333;
+        border: 2px solid #333;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 1s; }
+        section article h2 a:hover {
+          color: #F6BB42;
+          background: #333; }
+        section article h2 a:visited {
+          color: #333; }
+  section footer {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    font-family: "Source Code Pro";
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em; }
+    section footer:last-child {
+      margin-right: 0; }

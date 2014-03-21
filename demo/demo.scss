@@ -1,0 +1,81 @@
+@import "bourbon", "neat";
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro:400,700);
+
+body {
+  color: #333;
+  background: #333;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  @include outer-container;
+  background: #333;
+  text-align: center;
+  h1 {
+    @include span-columns(12);
+    display: block;
+    font-family: "Source Code Pro";
+    color: #F6BB42;
+    small {
+      color: #999;
+      font-family: "Source Sans Pro";
+      font-size: 0.5em;
+    }
+  }
+  .buttons {
+    @include span-columns(12);
+    margin-bottom: 30px;
+  }
+}
+
+$mobile: new-breakpoint(max-width 800px 6);
+section {
+  background: #333;
+  color: #f6bb42;
+  &:nth-child(2n) {
+    color: #333;
+    background: #f6bb42;
+  }
+  @include outer-container;
+  aside {
+    padding: 20px;
+    @include span-columns(6);
+    @include media($mobile) {
+      @include span-columns(6);
+    }
+  }
+  article {
+    padding: 20px;
+    @include span-columns(6);
+    @include media($mobile) {
+      @include span-columns(6);
+    }
+    h2 {
+      text-align: center;
+      a {
+        color: #333;
+        border: 2px solid #333;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 1s;
+        &:hover {
+          color: #F6BB42;
+          background: #333;
+        }
+        &:visited {
+          color: #333;
+        }
+      }
+    }
+  }
+  footer {
+    @include span-columns(12);
+    font-family: "Source Code Pro";
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+  }
+}
