@@ -9,13 +9,12 @@ It can be used as way for users to generate passwords for themselves, generate p
 The usage is rather simple. Just point the plugin to the target input field. 
 
 		ntropy({limit: 10, pool: "abcdefghijklmnopqrstuvwxyz"}, function (random) {
-  		console.log(random);
+  			console.log(random);
 		});
 		
 After the random string is generated, the callback is executed.
 
-##Demo
-A demo/new page will follow soon.
+##[Demo](http://www.dinopaskvan.com/ntropy.js/)
 
 ##Options
 The `options` object has the following two properties:
