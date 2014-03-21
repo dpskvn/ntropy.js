@@ -1,6 +1,8 @@
-07-15-2013 - v2.0
-* Updated info
-* Removed necessity for images
+03-21-2014 - v2.0
+* Complete rewrite
+* jEntropy is now ntropy.js
+* jQuery is not required anymore
+* Support for mobile devices through device motion events
 
 04-13-2011 - v1.1
 * Added option for disabling input fields
