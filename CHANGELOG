@@ -1,4 +1,8 @@
-03-21-2014 - v2.0
+03-21-2014 - v2.0.1
+* Added a Gruntfile for building with grunt
+* Added a non-minified version to dist
+
+03-21-2014 - v2.0.0
 * Complete rewrite
 * jEntropy is now ntropy.js
 * jQuery is not required anymore
