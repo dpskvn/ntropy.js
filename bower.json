@@ -1,0 +1,30 @@
+{
+  "name": "ntropy",
+  "version": "2.0.0",
+  "homepage": "http://www.dinopaskvan.com/ntropy.js/",
+  "authors": [
+    "Dino Paskvan <dpaskvan@gmail.com>"
+  ],
+  "description": "A motion-based random string generator",
+  "main": "src/ntropy.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "entropy",
+    "jentropy",
+    "ntropy",
+    "random",
+    "random",
+    "generator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ]
+}
