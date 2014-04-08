@@ -1,0 +1,33 @@
+{
+  "name": "ntropy",
+  "version": "2.0.1",
+  "description": "A motion-based random string generator",
+  "main": "dist/ntropy.js",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dpskvn/ntropy.js.git"
+  },
+  "keywords": [
+    "entropy",
+    "jentropy",
+    "random",
+    "random",
+    "generator"
+  ],
+  "author": "Dino Paskvan <dpaskvan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dpskvn/ntropy.js/issues"
+  },
+  "homepage": "https://github.com/dpskvn/ntropy.js"
+}
