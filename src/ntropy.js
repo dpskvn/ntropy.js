@@ -39,16 +39,7 @@ window.ntropy = (function () {
      */
 
     function cmpValues(oldVal, newVal, offset) {
-      if (oldVal > newVal) {
-        if ((oldVal - newVal) > offset) {
-          return true;
-        }
-        return false;
-      }
-      if ((newVal - oldVal) > offset) {
-        return true;
-      }
-      return false;
+      return (oldVal > newVal) ? ((oldVal - newVal) > offset) : ((newVal - oldVal) > offset);
     }
 
     /**
@@ -56,10 +47,7 @@ window.ntropy = (function () {
      */
 
     function mobileCheck() {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true;
-      }
-      return false;
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
     /**
