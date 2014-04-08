@@ -1,12 +1,12 @@
 //=======================================================
-//              _
-//  _ __       | |_ _ __ ___  _ __  _   _   (_)___
-// | '_ \ _____| __| '__/ _ \| '_ \| | | |  | / __|
-// | | | |_____| |_| | | (_) | |_) | |_| |_ | \__ \
-// |_| |_|      \__|_|  \___/| .__/ \__, (_)/ |___/
-//                           |_|    |___/ |__/
-// n-tropy.js
-// Version: 2.0
+//         _
+//  _ __  | |_ _ __ ___  _ __  _   _   (_)___
+// | '_ \ | __| '__/ _ \| '_ \| | | |  | / __|
+// | | | || |_| | | (_) | |_) | |_| |_ | \__ \
+// |_| |_| \__|_|  \___/| .__/ \__, (_)/ |___/
+//                      |_|    |___/ |__/
+// ntropy.js
+// Version: 2.0.2
 // Author: Dino Paskvan
 // Mail: dpaskvan@gmail.com
 // Web: http://www.dinopaskvan.com
@@ -39,16 +39,7 @@ window.ntropy = (function () {
      */
 
     function cmpValues(oldVal, newVal, offset) {
-      if (oldVal > newVal) {
-        if ((oldVal - newVal) > offset) {
-          return true;
-        }
-        return false;
-      }
-      if ((newVal - oldVal) > offset) {
-        return true;
-      }
-      return false;
+      return (oldVal > newVal) ? ((oldVal - newVal) > offset) : ((newVal - oldVal) > offset);
     }
 
     /**
@@ -56,10 +47,7 @@ window.ntropy = (function () {
      */
 
     function mobileCheck() {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true;
-      }
-      return false;
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
     /**
@@ -73,8 +61,9 @@ window.ntropy = (function () {
         z = e.accelerationIncludingGravity.z,
         random = '',
         tSeed,
-        i;
-      if (cmpValues(oldX, x, 2) || cmpValues(oldY, y, 2) || cmpValues(oldZ, z, 2)) {
+        i,
+        randOffset = Math.floor(Math.random()* 3) + 1;
+      if (cmpValues(oldX, x, randOffset) || cmpValues(oldY, y, randOffset) || cmpValues(oldZ, z, randOffset)) {
         tSeed = Math.abs((Math.floor(x * 100) ^ Math.floor(y * 100)) ^ Math.floor(z * 100)) % (pool.length * 3);
         if (tSeed < pool.length) {
           seed.push(tSeed);
@@ -104,8 +93,9 @@ window.ntropy = (function () {
         y = e.clientY,
         random = '',
         tSeed,
-        i;
-      if (cmpValues(oldMX, x, 51) || cmpValues(oldMY, y, 51)) {
+        i,
+        randOffset = Math.floor(Math.random()* 30) + 50;
+      if (cmpValues(oldMX, x, randOffset) || cmpValues(oldMY, y, randOffset)) {
         tSeed = (x ^ y) % (pool.length * 3);
         if (tSeed < pool.length) {
           seed.push(tSeed);

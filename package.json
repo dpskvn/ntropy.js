@@ -1,6 +1,6 @@
 {
   "name": "ntropy",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A motion-based random string generator",
   "main": "dist/ntropy.js",
   "devDependencies": {
