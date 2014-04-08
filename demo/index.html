@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ntropy.js demo</title>
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400);
+      
+      body {
+        font-family: "Source Sans Pro";
+      }
+      input {
+        font-family: "Source Sans Pro";
+        border: 2px solid #F6BB42;
+        font-size: 1.2em;
+        outline: none;
+        padding: 5px;
+        width: 200px;
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        text-align: center;
+      }
+      h3 {
+        font-size: 1.2em;
+        display: block;
+        margin: auto;
+        width: 200px;
+        text-align: center;
+        margin-top: 30px;
+      }
+    </style>
+</head>
+<body>
+  <input id="input" placeholder="Click here">
+  <h3 id="ntropy"></h3>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/dist/ntropy.js"></script>
+  <script type="text/javascript">
+    $('#input').focus(function() {
+      $(this).blur();
+      $('#ntropy').text('Move your mouse around (inside this box) or shake your device');
+      ntropy({}, function(rnd){
+        $('#ntropy').hide();
+        $('#input').val(rnd);
+      });
+    });
+  </script>
+</body>
+</html>
